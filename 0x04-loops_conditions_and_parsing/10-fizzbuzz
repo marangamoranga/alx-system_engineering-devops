@@ -1,20 +1,26 @@
 #!/usr/bin/env bash
-# displays Best School 10 times.
+# This script displays numbers from 1 to 100 with
+# multiples of 3 replaced with Fizz
+# multiples of 5 replaced with Buzz
+# multiples of 3 and 5 replaced with FizzBuzz
 
-COUNTER=1
-while [ $COUNTER -lt 101 ]
+n=1
+
+while [ $n -le 100 ]
 do
-    if [ $((COUNTER%15)) = 0 ]
+    if [ $((n % 3)) -eq 0 -a $((n % 5)) -eq 0 ]
     then
         echo "FizzBuzz"
-    elif [ $((COUNTER%3)) = 0 ]
-    then
-        echo "Fizz"
-    elif [ $((COUNTER%5)) = 0 ]
+    elif [ $((n % 5)) -eq 0 ]
     then
         echo "Buzz"
+    elif [ $((n % 3)) -eq 0 ]
+    then
+        echo "Fizz"
+
     else
-        echo "$COUNTER"
+        echo "$n"
+
     fi
-    let COUNTER+=1
+    n=$((n+1))
 done
